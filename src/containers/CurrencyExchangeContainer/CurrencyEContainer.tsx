@@ -1,7 +1,7 @@
 import React from 'react';
 import CurrencyExchange from '../../components/CurrencyExchange/CurrencyExchange';
 import {CurrencyState, CurrencyType} from '../../redux/currencyReducer';
-import {ChangeActionAC, ChangeCurrencyFieldAC, ChangeCurrentCurrencyAC} from '../../redux/actions';
+import {ChangeActionAC, ChangeCurrencyFieldAC, ChangeCurrentCurrencyAC, CurrencyReducersTypes, typedDispatch} from '../../redux/actions';
 import {connect, useDispatch} from 'react-redux';
 
 
@@ -14,7 +14,7 @@ const CurrencyEContainer: React.FC<CurrencyState> = props => {
         amountOfCurrency,
     } = props;
 
-    const dispatch = useDispatch()
+    const dispatch = typedDispatch()
 
     let currencyRate: number = 0;
     const currenciesName = currencies.map((currency: CurrencyType) => {
