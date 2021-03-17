@@ -1,20 +1,21 @@
 import React from 'react';
 import CurrencyExchange from '../../components/CurrencyExchange/CurrencyExchange';
-import {CurrencyState, CurrencyType} from '../../redux/currencyReducer';
-import {ChangeActionAC, ChangeCurrencyFieldAC, ChangeCurrentCurrencyAC, CurrencyReducersTypes, typedDispatch} from '../../redux/actions';
-import {connect, useDispatch} from 'react-redux';
+import {CurrencyType} from '../../redux/currencyReducer';
+import {ChangeActionAC, ChangeCurrencyFieldAC, ChangeCurrentCurrencyAC, typedDispatch} from '../../redux/actions';
+import {useSelector} from 'react-redux';
+import {selectCurrencyState} from "../../redux/selectors";
 
 
-const CurrencyEContainer: React.FC<CurrencyState> = props => {
+const CurrencyEContainer: React.FC = () => {
+
+    const dispatch = typedDispatch()
     const {
         currencies,
         currentCurrency,
         isBuying,
         amountOfBYN,
-        amountOfCurrency,
-    } = props;
-
-    const dispatch = typedDispatch()
+        amountOfCurrency
+    } = useSelector(selectCurrencyState);
 
     let currencyRate: number = 0;
     const currenciesName = currencies.map((currency: CurrencyType) => {
@@ -71,16 +72,5 @@ const CurrencyEContainer: React.FC<CurrencyState> = props => {
     );
 };
 
-const mapStateToProps = ({currency}: { currency: CurrencyState }): CurrencyState => {
-    return {
-        currencies: currency.currencies,
-        currentCurrency: currency.currentCurrency,
-        isBuying: currency.isBuying,
-        amountOfBYN: currency.amountOfBYN,
-        amountOfCurrency: currency.amountOfCurrency,
-    };
-};
-
-export default connect(mapStateToProps,
-    {})(CurrencyEContainer);
+export default CurrencyEContainer
 
