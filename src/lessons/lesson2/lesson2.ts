@@ -31,14 +31,13 @@ sumTo(100) = 100 + 99 + ... + 2 + 1 = 5050*/
         result += i;
     }
     return result;
-}
-console.log(sumTo(100))*/
+}*/
+console.log(sumTo(100))
 function sumTo(n: number): number {
     if (n === 1) return n;
     return n + sumTo(n - 1)
 }
-
-console.log(sumTo(100))
+//console.log(sumTo(100))
 
 
 // Task 01
@@ -49,7 +48,21 @@ function sum(n: number) {
         return n + n2
     }
 }
-console.log(sum(3)(6))
+//console.log(sum(3)(6))
+
+let sum3 = (num: number) => (num2: number) => num + num2
+//console.log(sum3(1)(1))
+
+let sum2 = (num: number) => {
+    return function (num2: number){
+        return function (num3: number){
+            return function (num4: number): number{
+                return num + num2 + num3 + num4
+            }
+        }
+    }
+}
+//console.log(sum2(1)(2)(3)(4))
 
 // Task 02
 // Реализовать функцию makeCounter которая работает следующим образом:
@@ -60,6 +73,19 @@ console.log(sum(3)(6))
 // counter2(); // 1
 // counter(); // 3
 
+function makeCounter() {
+    let count = 0;
+    return function (): number {
+        return ++count
+    }
+}
+const count = makeCounter();
+//console.log(count());
+//console.log(count());
+const counter2 = makeCounter();
+//console.log(counter2());
+//console.log(count());
+
 // Task 03
 // Переписать функцию из Task 02 так, что бы она принимала число в качестве аргумента и это число было стартовым значением счетчика
 // и возвращала следующий объект методов:
@@ -67,6 +93,25 @@ console.log(sum(3)(6))
 // decrease: -1
 // reset: установить счетчик в 0;
 // set: установить счетчик в заданное значение;
+
+function makeCont (n: number) {
+    let numValue = n;
+    return {
+        increase: () => numValue += 1,
+        decrease: () => numValue -= 1,
+        reset: () => numValue = numValue = 0,
+        set: (newNumValue: number) => numValue = newNumValue
+    }
+}
+const counter3 = makeCont(5)
+console.log(counter3.decrease())
+console.log(counter3.decrease())
+console.log(counter3.decrease())
+console.log(counter3.increase())
+console.log(counter3.reset())
+console.log(counter3.set(100))
+console.log(counter3.increase())
+console.log(counter3.increase())
 
 // Task 04*
 // Реализовать функцию superSum которая принимает число в качестве аргумента, которое указывает на количество слагаемых
@@ -95,9 +140,9 @@ function superSum(n:number) {
     return helper;
 }
 //@ts-ignore
-console.log(superSum(3)(2,5,3))
+//console.log(superSum(3)(2,5,3))
 //@ts-ignore
-console.log(superSum(3)(2,5)(3,9))
+//console.log(superSum(3)(2,5)(3,9))
 
 // P.S. типизируйте только аргументы, а при вызове функции используйте @ts-ignore
 
