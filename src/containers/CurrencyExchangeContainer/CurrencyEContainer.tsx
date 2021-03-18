@@ -1,14 +1,14 @@
 import React from 'react';
 import CurrencyExchange from '../../components/CurrencyExchange/CurrencyExchange';
 import {CurrencyType} from '../../redux/currencyReducer';
-import {ChangeActionAC, ChangeCurrencyFieldAC, ChangeCurrentCurrencyAC, typedDispatch} from '../../redux/actions';
+import {ChangeActionAC, ChangeCurrencyFieldAC, ChangeCurrentCurrencyAC, TypedDispatch} from '../../redux/actions';
 import {useSelector} from 'react-redux';
 import {selectCurrencyState} from "../../redux/selectors";
 
 
 const CurrencyEContainer: React.FC = () => {
 
-    const dispatch = typedDispatch()
+    const dispatch = TypedDispatch()
     const {
         currencies,
         currentCurrency,
