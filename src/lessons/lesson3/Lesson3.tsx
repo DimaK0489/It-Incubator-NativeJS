@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, {useState} from 'react';
 import API from './API';
 import './lesson_3';
 
@@ -8,7 +8,7 @@ const Lesson3 = () => {
     const [searchNameByType, setSearchNameByType] = useState('');
     const [searchResultByType, setSearchResultByType] = useState('');
 
-    const searchFilm = () => {
+    /*const searchFilm = () => {
         API.searchFilmsByTitle(searchName)
             .then(({data}) => {
                 // if (data.Response === "True"){
@@ -21,7 +21,24 @@ const Lesson3 = () => {
                     ? setSearchResult(JSON.stringify(Search))
                     : setSearchResult(Error)
             })
-    };
+    };*/
+    // const searchFilm = async () => {
+    //     const result = await API.searchFilmsByTitle(searchName)
+    //     console.log(result)
+    // }
+    const searchFilm = async () => {
+        try {
+            const {data} = await API.searchFilmsByTitle(searchName)
+            const {Response, Search, Error} = data
+            if (Response === "True") {
+                setSearchResult(JSON.stringify(Search))
+            } else {
+                setSearchResult(Error)
+            }
+        } catch (e) {
+            console.log(e)
+        }
+    }
 
     const searchByType = (e: React.MouseEvent<HTMLButtonElement>) => {
         const type: string = e.currentTarget.dataset.t ? e.currentTarget.dataset.t : '';
@@ -42,7 +59,8 @@ const Lesson3 = () => {
 
             <div>
                 <h3><p>Search by type:</p></h3>
-                <input type="text" value={searchNameByType} onChange={(e) => setSearchNameByType(e.currentTarget.value)}/>
+                <input type="text" value={searchNameByType}
+                       onChange={(e) => setSearchNameByType(e.currentTarget.value)}/>
                 <button onClick={searchByType} data-t='movie'>Movie</button>
                 <button onClick={searchByType} data-t='series'>Series</button>
                 <div>

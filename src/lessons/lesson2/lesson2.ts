@@ -32,7 +32,7 @@ sumTo(100) = 100 + 99 + ... + 2 + 1 = 5050*/
     }
     return result;
 }*/
-console.log(sumTo(100))
+//console.log(sumTo(100))
 function sumTo(n: number): number {
     if (n === 1) return n;
     return n + sumTo(n - 1)
@@ -104,14 +104,14 @@ function makeCont (n: number) {
     }
 }
 const counter3 = makeCont(5)
-console.log(counter3.decrease())
-console.log(counter3.decrease())
-console.log(counter3.decrease())
-console.log(counter3.increase())
-console.log(counter3.reset())
-console.log(counter3.set(100))
-console.log(counter3.increase())
-console.log(counter3.increase())
+// console.log(counter3.decrease())
+// console.log(counter3.decrease())
+// console.log(counter3.decrease())
+// console.log(counter3.increase())
+// console.log(counter3.reset())
+// console.log(counter3.set(100))
+// console.log(counter3.increase())
+// console.log(counter3.increase())
 
 // Task 04*
 // Реализовать функцию superSum которая принимает число в качестве аргумента, которое указывает на количество слагаемых
