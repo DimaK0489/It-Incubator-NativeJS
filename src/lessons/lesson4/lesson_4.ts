@@ -131,7 +131,7 @@ pr2
 // Создайте промис, который постоянно находиться в состоянии pending.
 // В конструкторе промиса выведите в консоль сообщение "Promise is created".
 const pr = new Promise((res, rej) => {
-    console.log("Promise is created")
+    //console.log("Promise is created")
 })
 
 // Task 02
@@ -140,7 +140,7 @@ const pr = new Promise((res, rej) => {
 // Получите данные промиса и выведите их в консоль
 
 const pr1 = new Promise(resolve => resolve("Promise Data"))
-    .then(console.log)
+   // .then(console.log)
 
 
 // Task 03
@@ -148,7 +148,7 @@ const pr1 = new Promise(resolve => resolve("Promise Data"))
 // и возвращает строку 'Promise Error'
 // Получите данные промиса и выведите их в консоль
 const pr2 = new Promise((res, rej) => rej('Promise Error'))
-    .catch(console.log);
+ //   .catch(console.log);
 
 // Task 04
 // Создайте промис, который переходит в состояние resolved через 3с.
@@ -158,7 +158,7 @@ const pr2 = new Promise((res, rej) => rej('Promise Error'))
 const pr3 = new Promise((res, rej) => {
     setTimeout(() => res('Promise Error4'), 3000)
 })
-pr3.then(console.log);
+//pr3.then(console.log);
 
 
 // Task 05
@@ -185,10 +185,10 @@ const handlePromise: testObjType = {
     reject: null,
     resolve: null,
     onSuccess: (paramName: string) => {
-        console.log(`Promise is resolved with data: ${paramName}`);
+       // console.log(`Promise is resolved with data: ${paramName}`);
     },
     onError: (paramName: string) => {
-        console.log(`Promise is resolved with error: ${paramName}`)
+        //console.log(`Promise is resolved with error: ${paramName}`)
     }
 }
 export const createPromise = () => {
@@ -228,7 +228,7 @@ function onSuccess(oneParam: string) {
 }
 
 function print(value: string) {
-    console.log(value)
+   // console.log(value)
 }
 
 pr6
@@ -255,7 +255,7 @@ const p10All = Promise.all([pr7, pr8, pr9]);
 p10All
     .then(data => {
         obj = {name: data[0].name, age: data[1].age, city: data[2].city}
-        console.log(obj)
+        //console.log(obj)
     })
 
 
