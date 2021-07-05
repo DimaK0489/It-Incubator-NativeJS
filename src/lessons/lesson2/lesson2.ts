@@ -1,4 +1,4 @@
-console.log('lesson 2');
+
 
 // Lexical environment
 // http://jsflow.org/docs/lex-env/
@@ -19,41 +19,39 @@ console.log('lesson 2');
 // Recursion
 // https://learn.javascript.ru/recursion
 // https://www.youtube.com/watch?v=Kuq6oIN3PH0
-/*sumTo(1) = 1
-sumTo(2) = 2 + 1 = 3
-sumTo(3) = 3 + 2 + 1 = 6
-sumTo(4) = 4 + 3 + 2 + 1 = 10
-...
-sumTo(100) = 100 + 99 + ... + 2 + 1 = 5050*/
+
 /*function sumTo(n: number) {
     let result = 0
     for (let i = n; i > 0; i--){
         result += i;
     }
     return result;
-}*/
-//console.log(sumTo(100))
-function sumTo(n: number): number {
-    if (n === 1) return n;
-    return n + sumTo(n - 1)
 }
-//console.log(sumTo(100))
+console.log(sumTo(100))*/
+
+/*function sumTo2(n: number): number {
+    if (n === 1) return n;
+    return n + sumTo2(n - 1)
+}
+console.log(sumTo2(100))*/
 
 
 // Task 01
 // Реализовать функцию sum которая суммирует 2 числа следующим образом sum(3)(6) === 9
 
-function sum(n: number) {
+
+/*function sum (n: number) {
     return function (n2: number){
         return n + n2
     }
-}
+}*/
 //console.log(sum(3)(6))
 
-let sum3 = (num: number) => (num2: number) => num + num2
+// @ts-ignore
+const sum3 = (num: number) => (num2: number) => num + num2
 //console.log(sum3(1)(1))
 
-let sum2 = (num: number) => {
+const sum2 = (num: number) => {
     return function (num2: number){
         return function (num3: number){
             return function (num4: number): number{
@@ -65,11 +63,11 @@ let sum2 = (num: number) => {
 //console.log(sum2(1)(2)(3)(4))
 
 // Task 02
-// Реализовать функцию makeCounter которая работает следующим образом:
-// const counter = makeCounter();
+// Реализовать функцию Counter которая работает следующим образом:
+// const counter = Counter();
 // counter(); // 1
 // counter(); // 2
-// const counter2 = makeCounter();
+// const counter2 = Counter();
 // counter2(); // 1
 // counter(); // 3
 
@@ -152,5 +150,4 @@ function superSum(n:number) {
 // Task 06
 // написать функцию, которая повторяет функционал метода flat массива на всю глубину.
 
-// just a plug
-export default () => {};
+
