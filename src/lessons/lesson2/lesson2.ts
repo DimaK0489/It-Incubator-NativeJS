@@ -51,7 +51,7 @@ console.log(sumTo2(100))*/
 const sum3 = (num: number) => (num2: number) => num + num2
 //console.log(sum3(1)(1))
 
-const sum2 = (num: number) => {
+const sumS = (num: number) => {
     return function (num2: number){
         return function (num3: number){
             return function (num4: number): number{
@@ -60,7 +60,7 @@ const sum2 = (num: number) => {
         }
     }
 }
-//console.log(sum2(1)(2)(3)(4))
+//console.log(sumS2(1)(2)(3)(4))
 
 // Task 02
 // Реализовать функцию Counter которая работает следующим образом:
