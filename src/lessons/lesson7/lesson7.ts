@@ -1,5 +1,3 @@
-console.log('Lesson 7');
-
 // __Proto__
 // https://learn.javascript.ru/prototype-inheritance
 // https://habr.com/ru/post/518360/
@@ -37,8 +35,7 @@ console.log('Lesson 7');
 // Реализовать таски 01-03 через функции конструкторы в отдельном JS файле, реализовать наследование
 
 
-// Task 05
-// Используя метод Apply реализовать свой собственный метод bind
+
 
 
 // just a plug

@@ -1,5 +1,3 @@
-console.log('Lesson 5');
-
 // Keyword - this
 // https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Operators/this
 // https://learn.javascript.ru/object-methods
@@ -69,7 +67,7 @@ someFC();*/
         console.log("this from FD", this);
         function test () {
             console.log("this from arrow", this)
-        };
+        }
         return test;
     },
 }
@@ -83,7 +81,7 @@ someFC2();*/
         console.log("this from FD", this);
         function test () {
             console.log("this from arrow", this)
-        };
+        }
         return test;
     },
 }
@@ -199,12 +197,7 @@ obj1.f.apply(obj3, [1,2]);*/
 // Дан объект someObj, реализуйте функцию greeting и присвойте ее ключу объекта с аналогичным именем.
 // Функция должна вернуть строку `My name is ${name}. I am ${age}`, где name и age берутся из свойств объекта
 
-type someObjType = {
-    name: string;
-    age: number;
-}
-
-let someObj: someObjType = {
+let someObj = {
     name: 'Eugene',
     age: 32
 }
@@ -230,10 +223,12 @@ let someObj: someObjType = {
 
 let One = {name: 'One'};
 let Two = {
-    name: 'Two', sayHello: function () {
+    name: 'Two',
+    sayHello: function () {
         console.log(`Hello, my name is ${this.name}`)
     }
 };
+
 
 // Task 06
 // создайте объект helperObj у которого есть следующие методы:
@@ -245,10 +240,10 @@ let Two = {
 // Bind
 // 1) Дана функция sumTwoNumbers, реализовать функцию bindNumber которая принимает функцию sumTwoNumbers и число, и
 // возвращает другую функцию, которое также принимает число и возвращает сумму этих чисел. Замыкание использовать нельзя
-function sumTwoNumbers(a: number, b: number): number {
+function sumTwoNumbers(a, b) {
     return a + b
-};
-function bindNum(f: Function, n: number) {
+}
+function bindNum(f, n) {
     return f.bind(null, n)
 }
 let bindTen = bindNum(sumTwoNumbers, 10);
@@ -269,6 +264,3 @@ console.log(bindTen(5));
 // Реализовать задачи 2-4 из Bind с помощью Call
 
 
-// just a plug
-export default () => {
-};

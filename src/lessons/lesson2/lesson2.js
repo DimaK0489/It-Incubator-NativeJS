@@ -1,5 +1,3 @@
-
-
 // Lexical environment
 // http://jsflow.org/docs/lex-env/
 
@@ -38,8 +36,6 @@ console.log(sumTo2(100))*/
 
 // Task 01
 // Реализовать функцию sum которая суммирует 2 числа следующим образом sum(3)(6) === 9
-
-
 /*function sum (n: number) {
     return function (n2: number){
         return n + n2
@@ -48,19 +44,19 @@ console.log(sumTo2(100))*/
 //console.log(sum(3)(6))
 
 // @ts-ignore
-const sum3 = (num: number) => (num2: number) => num + num2
+const sum3 = (num) => (num2) => num + num2
 //console.log(sum3(1)(1))
 
-const sumS = (num: number) => {
-    return function (num2: number){
-        return function (num3: number){
-            return function (num4: number): number{
+const sumS = (num) => {
+    return function (num2){
+        return function (num3){
+            return function (num4){
                 return num + num2 + num3 + num4
             }
         }
     }
 }
-//console.log(sumS2(1)(2)(3)(4))
+//console.log(sumS(1)(2)(3)(4))
 
 // Task 02
 // Реализовать функцию Counter которая работает следующим образом:
@@ -73,16 +69,16 @@ const sumS = (num: number) => {
 
 function makeCounter() {
     let count = 0;
-    return function (): number {
+    return function () {
         return ++count
     }
 }
 const count = makeCounter();
-//console.log(count());
-//console.log(count());
+// console.log(count());
+// console.log(count());
 const counter2 = makeCounter();
-//console.log(counter2());
-//console.log(count());
+// console.log(counter2());
+// console.log(count());
 
 // Task 03
 // Переписать функцию из Task 02 так, что бы она принимала число в качестве аргумента и это число было стартовым значением счетчика
@@ -92,13 +88,13 @@ const counter2 = makeCounter();
 // reset: установить счетчик в 0;
 // set: установить счетчик в заданное значение;
 
-function makeCont (n: number) {
+function makeCont (n) {
     let numValue = n;
     return {
         increase: () => numValue += 1,
         decrease: () => numValue -= 1,
         reset: () => numValue = numValue = 0,
-        set: (newNumValue: number) => numValue = newNumValue
+        set: (newNumValue) => numValue = newNumValue
     }
 }
 const counter3 = makeCont(5)
@@ -121,12 +117,12 @@ const counter3 = makeCont(5)
 // 5) superSum(3)(2,5)(3) //10
 // 6) superSum(3)(2,5)(3,9) //10
 
-function superSum(n:number) {
+function superSum(n) {
     if(n <= 0) return 0;
-    if(n === 1) return (n: number) => n;
-    let _argument: number[] = [];
+    if(n === 1) return (n) => n;
+    let _argument = [];
 
-    function helper(...args: number[]){
+    function helper(...args){
         _argument = [..._argument, ...args];
         if (_argument.length >= n){
             _argument.length = n;
@@ -141,8 +137,6 @@ function superSum(n:number) {
 //console.log(superSum(3)(2,5,3))
 //@ts-ignore
 //console.log(superSum(3)(2,5)(3,9))
-
-// P.S. типизируйте только аргументы, а при вызове функции используйте @ts-ignore
 
 // Task 05
 // решить все задачи по рекурсии которые даны в конце статьи https://learn.javascript.ru/recursion

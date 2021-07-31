@@ -1,6 +1,5 @@
 import {ACTIONS_TYPE, CurrencyReducersTypes} from './actions';
 
-
 export type CurrencyType = {
     currencyName: string;
     buyRate: number;

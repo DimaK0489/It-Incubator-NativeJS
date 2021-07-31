@@ -5,7 +5,6 @@ import {ChangeActionAC, ChangeCurrencyFieldAC, ChangeCurrentCurrencyAC, TypedDis
 import {useSelector} from 'react-redux';
 import {selectCurrencyState} from "../../redux/selectors";
 
-
 const CurrencyEContainer: React.FC = () => {
 
     const dispatch = TypedDispatch()

@@ -12,10 +12,9 @@ function sum2(a){
         }
     }
 }
-console.log(sum2(4)(4)(4))
+console.log(sum2(4)(4)(2))
 
 // Example 2
-
 function discount (price, discount) {
     return price * discount
 }

@@ -1,4 +1,4 @@
-import {rejects} from "assert";
+
 // Event loop
 // https://learn.javascript.ru/event-loop
 // https://habr.com/ru/company/ruvds/blog/340508/

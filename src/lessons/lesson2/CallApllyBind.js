@@ -12,10 +12,9 @@ const user2 = {
     level: "Senior"
 }
 function getName() {
-    const name = this.name
-    console.log(name)
+    console.log(this.name)
 }
-const result1 = getName.call(user1)
+const result1 = getName.bind(user1)();
 const result2 = getName.call(user2)
 console.log(result1) // this (в теле функции getName) будет указывать на объект user1, у которого есть свойство name.
 console.log(result2) // this (в теле функции getName) будет указывать на объект user2, у которого есть свойство name.
@@ -39,22 +38,22 @@ const senior = {
 function promote (position, salary) {
     this.salary = salary
     this.position = position
-    return this.position + ' earns' + this.salary + ' dollars'
+    return this.position + ' earns ' + this.salary + ' dollars'
 }
 const res1 = promote.call(junior, 'super junior dev', 700)
-const res2 = promote.call(middle, 'super middle dev', 1200)
-const res3 = promote.call(senior, 'super junior dev', 2200)
+const res2 = promote.apply(middle, ['super middle dev', 1200])
+const res3 = promote.bind(senior, 'super junior dev', 2200)
 console.log(res1)
 console.log(res2)
-console.log(res3)
+console.log(res3())
 
 // Apply похож на Call но аргументы передаются в массиве
 const resA = promote.apply(junior, ['super junior dev', 700])
 const resB = promote.apply(middle, ['super middle dev', 1200])
 const resC = promote.apply(senior, ['super junior dev', 2200])
-console.log(resA)
-console.log(resB)
-console.log(resC)
+// console.log(resA)
+// console.log(resB)
+// console.log(resC)
 
 // Bind  этот метод позволяет выполнить отложенный вызов функции.
 const resultA = promote.bind(junior)
