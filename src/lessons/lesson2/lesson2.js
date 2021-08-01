@@ -120,22 +120,20 @@ const counter3 = makeCont(5)
 function superSum(n) {
     if(n <= 0) return 0;
     if(n === 1) return (n) => n;
-    let _argument = [];
+    let acc = [];
 
     function helper(...args){
-        _argument = [..._argument, ...args];
-        if (_argument.length >= n){
-            _argument.length = n;
-            return _argument.reduce((acc,num) => acc + num)
+        acc = [...acc, ...args];
+        if (acc.length >= n){
+            acc.length = n;
+            return acc.reduce((acc,num) => acc + num)
         }else {
             return helper;
         }
     }
     return helper;
 }
-//@ts-ignore
 //console.log(superSum(3)(2,5,3))
-//@ts-ignore
 //console.log(superSum(3)(2,5)(3,9))
 
 // Task 05

@@ -1,3 +1,4 @@
+console.log('lesson7')
 // __Proto__
 // https://learn.javascript.ru/prototype-inheritance
 // https://habr.com/ru/post/518360/

@@ -42,6 +42,7 @@ let objClassNew = new Class("Volvo")
 
 // Task 05
 // Используя метод Call реализовать свой собственный метод bind
+// eslint-disable-next-line no-extend-native
 Function.prototype._bind = function (context, ...args) {
     const _this = this
     return function (...args2){
@@ -54,6 +55,7 @@ Function.prototype._bind = function (context, ...args) {
 // }
 // f()._bind()
 
+// eslint-disable-next-line no-extend-native
 Function.prototype._bind2 = function (context, ...args) {
     context.___bindFunc___ = this
     return function (...args2){
