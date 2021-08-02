@@ -146,3 +146,62 @@ let dateDisplayOptions = {
 };
 let formattedDate = date.toLocaleDateString('en', dateDisplayOptions);
 //console.log(formattedDate) // August 1,2021
+
+//Task 11
+let objBook = {title: "JS"}
+Object.preventExtensions(objBook) // метод запрещает добавлять новые свойства объекту
+let newObjBook = objBook
+newObjBook.author = "Robert";
+//console.log(objBook) // JS
+//console.log(newObjBook) // JS
+
+//Task 12
+function getAvaliabilityMessage(item) {
+    if (getAvaliabilityMessage(item)) {
+        var msg = 'Username avaliable'
+    }
+    return msg
+}
+function getAvailability (name) {
+    return name === 'Dima'
+}
+//console.log('getAvaliabilityMessage', getAvaliabilityMessage('newUser'))
+// undefined 'newUser' не равно "Dima"
+
+//Task 13
+const entries = []
+entries.push("a")
+entries.push("b","c") //push возвращает новую длину массива
+//console.log(entries.pop()); // удалит последней индекс
+
+//Task 14
+let entries2 = ['a',1,true]
+//console.log(entries instanceof Array) //true , instanceof сравнивает ссылки constructor
+
+//Task 15
+const entries3 = ["a", "b", "c"]
+entries3.length = 10
+//console.log(entries3.length) //перезаписали длину массива и он заполнился пустыми значениями
+
+//Task 16
+const ratings = [1,2,3,4,5]
+const result = ratings.reduce((start,next,index,array) => start * next)
+//console.log(result) //120 умножит все значения по порядку
+
+//Task 17
+const priority = [,,];
+for (const item of priority) {
+    //console.log(item)
+} // последняя запетая в массиве скипуется и выведет 2 undefined, движок примет последнюю запятую как ошибку
+
+//Task 18
+const entries4 = ['a','b','c']
+const newEntries = entries4.concat(['d','e','f'],'g','h')
+//console.log(newEntries.length) // добавит все элементы в массив, работает быстрее чем ...
+
+//Task 19
+const priority2 = ['low', 'Normal', 'High']
+const [low, ...remaining] = priority2
+//console.log(remaining) //достаем первый элемент и в ЛОГ выводим остальные
+
+//Task 20
