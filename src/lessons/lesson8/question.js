@@ -205,3 +205,110 @@ const [low, ...remaining] = priority2
 //console.log(remaining) //достаем первый элемент и в ЛОГ выводим остальные
 
 //Task 20
+let task = {isDone: false};
+//console.log(Object.prototype.isPrototypeOf(task))
+
+//Task 21
+let task1 = {id: 1};
+let task2 = {id: 2, num: 100};
+let target = {}
+Object.assign(target, task1, task2)
+//console.log(target) //склеит в один объект {id: 2, num: 100}
+
+//Task 22
+let tasks = {
+    isDone: true,
+    estHours: 16
+}
+let anotherTask = tasks // anotherTask хранится ссылка на объект tasks
+//console.log(anotherTask.isDone) // все очевидно
+
+//Task 23
+class Task {
+    constructor(id=2) {
+        //console.log('Constructing Task')
+        this.taskId = id
+    }
+    showId() {
+        console.log(this.taskId)
+    }
+}
+let taskNew = new Task();
+//taskNew.showId() // наследование, через него получаем доступ к методу который выводит id
+
+//Task 24
+let sum = function () {
+    let x = 0;
+    [...arguments].forEach((arg) => {
+        x += arg
+    })
+    return x;
+}
+//console.log(sum(1,2,3)) // [...arguments]-псевдомассив
+
+//Task 25
+function square(x,y) {
+    //console.log(x * y);
+} // перемножиться
+let v = square(2,3) // нет return значит будет undefined
+//console.log(v)
+
+//Task 26
+let person = {
+    firstName: "Alena",
+    lastName: "Dima"
+}
+function showFullName() {
+    console.log(`${this.firstName} ${this.lastName}`)
+}
+//showFullName.call(person) // вызывыем ф-ию с контекстом person, this = person и достанет свойства
+
+//Task 27
+uniqueInteger.count = 0;
+function uniqueInteger() {
+    return uniqueInteger.count++
+}
+//console.log(uniqueInteger()) //0
+//console.log(uniqueInteger()) //1
+
+//Task 28
+var callback = function (x) {
+    console.log(x)
+}
+var callAClosure = function (closure) {
+    closure(10)
+} // ф-ия принимает колбэк и делает его вызов
+//callAClosure(callback)
+
+//Task 29
+let taskOne = {
+    id: 123,
+    done: function () {
+        return () => console.log(this.id)
+    }
+};
+let anotherTasks = {
+    id: 987
+}
+//taskOne.done().bind(anotherTasks)(); // стрелочные ф-ий нет bind  - 123
+
+//Task 30
+// let obj = {
+//     a: 0,
+// }
+let obj = {
+    param: 0,
+    get a () {
+        return this.param++;
+    }
+}
+if (obj.a === 0 && obj.a === 1 && obj.a === 2){
+    //console.log('Work')
+}
+
+//Task 31
+let objt = {a: 1};
+let objt2 = Object.create(objt)
+console.log(objt2.hasOwnProperty('a'))
+objt2.a += 1;
+console.log(objt2.hasOwnProperty('a'))
